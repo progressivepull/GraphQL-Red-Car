@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apollo Studio Embeddable Explorer</title>
+
+  <!-- Apollo Embeddable Sandbox CDN -->
+  <script
+    src="https://embeddable-sandbox.cdn.apollographql.com/_latest/embeddable-sandbox.umd.production.min.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    #explorer {
+      height: 100vh;
+      width: 100vw;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="explorer"></div>
+
+  <script>
+    // Replace with your GraphQL endpoint
+    const endpointUrl = "http://localhost:4000/graphql";
+
+    new window.EmbeddedSandbox({
+      target: "#explorer",
+      initialEndpoint: endpointUrl,
+      includeCookies: true,
+      initialState: {
+        document: `# Welcome to Apollo Sandbox
+query ExampleQuery {
+  __typename
+}`,
+      },
+    });
+  </script>
+</body>
+</html>
